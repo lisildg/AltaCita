@@ -36,6 +36,10 @@ vec2 resolution = vec2(width, height);
 
 uniform float time;
 
+// Define tus propios colores aquí
+vec3 color1 = vec3(0.10196078431, 0.73725490196, 0.61176470588); // #1ABC9C
+vec3 color2 = vec3(0.60784313725, 0.34901960784, 0.7137254902); // #9B59B6
+
 #define POINT_COUNT 8
 
 vec2 points[POINT_COUNT];
@@ -151,19 +155,19 @@ void main(){
   
   vec3 col = vec3(0.0);
 
-	//White core
-  col += 10.0*vec3(smoothstep(0.003, 0.001, dist));
-  //Pink glow
-  col += glow * vec3(1.0,0.05,0.3);
+  // White core
+  col += 10.0 * vec3(smoothstep(0.003, 0.001, dist));
+  // Pink glow (cambiar a tu primer color personalizado)
+  col += glow * color1;
   
   //Get second segment
   dist = getSegment(t, pos, 3.4, scale);
   glow = getGlow(dist, radius, intensity);
   
-  //White core
-  col += 10.0*vec3(smoothstep(0.003, 0.001, dist));
-  //Blue glow
-  col += glow * vec3(0.1,0.4,1.0);
+  // White core
+  col += 10.0 * vec3(smoothstep(0.003, 0.001, dist));
+  // Blue glow (cambiar a tu segundo color personalizado)
+  col += glow * color2;
         
 	//Tone mapping
 	col = 1.0 - exp(-col);
@@ -286,7 +290,7 @@ function draw(){
 draw();
 }, []);
 return (
-    <canvas id="canvas" width="1400" height="600"></canvas>
+    <canvas id="canvas" ></canvas>
   );
 };
 export default Heart;
