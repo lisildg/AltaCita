@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Heart from './pages/Heart';
 import './styles.css';
 import CustomButton from './components/Button';
+import { NavBar } from './components/NavBar';
 
 
 
@@ -11,13 +12,13 @@ function App() {
     
   return (
     <div>
-      <h1>Alta Cita</h1>
+      <NavBar />
+      <h1 className="pt-16">Alta Cita</h1>
       <Heart  />
-      {/* <CustomButton defaultColor="#9B59B6" text="hola"/>
+      <CustomButton defaultColor="#9B59B6" text="hola"/>
       
-      {/* Ejemplo con color verde 
-      <CustomButton defaultColor="#1ABC9C" /> */}
-  
+      <CustomButton defaultColor="red" text="te amo franquito" /> 
+      
      
     </div>
   );
