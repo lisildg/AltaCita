@@ -290,7 +290,7 @@ function draw(){
 draw();
 }, []);
 return (
-    <canvas id="canvas" ></canvas>
+    <canvas id="canvas"  ></canvas>
   );
 };
 export default Heart;
