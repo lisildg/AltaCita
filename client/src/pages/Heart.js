@@ -37,8 +37,8 @@ vec2 resolution = vec2(width, height);
 uniform float time;
 
 // Define tus propios colores aquí
-vec3 color1 = vec3(0.10196078431, 0.73725490196, 0.61176470588); // #1ABC9C
-vec3 color2 = vec3(0.60784313725, 0.34901960784, 0.7137254902); // #9B59B6
+vec3 color1 = vec3(0.10196078431 * 0.6, 0.73725490196 * 0.6, 0.61176470588 * 0.6); // #1ABC9C
+vec3 color2 = vec3(0.60784313725 * 0.6, 0.34901960784 * 0.6, 0.7137254902 * 0.6); // #9B59B6
 
 #define POINT_COUNT 8
 
