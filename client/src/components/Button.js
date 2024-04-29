@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate  } from "react-router-dom";
 
-const CustomButton = ({ text, defaultColor }) => {
+const CustomButton = ({ text, defaultColor, route }) => {
+
+  const navigate = useNavigate();
   const handleHover = (e) => {
     e.target.style.boxShadow = `0 0 10px ${defaultColor}, 0 0 20px ${defaultColor}, 0 0 40px ${defaultColor}`;
   };
@@ -9,8 +12,12 @@ const CustomButton = ({ text, defaultColor }) => {
     e.target.style.boxShadow = `0 0 5px ${defaultColor}, 0 0 10px ${defaultColor}, 0 0 15px ${defaultColor}`;
   };
 
-  const handleClick = (e) => {
-    e.target.style.backgroundImage = `linear-gradient(to bottom right, ${defaultColor}, white)`;
+  const handleClick = () => {
+    if (route) {
+      navigate(route);
+    } else {
+      console.warn("No route provided for navigation.");
+    }
   };
 
   return (
