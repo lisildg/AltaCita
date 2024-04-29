@@ -227,7 +227,7 @@ function getUniformLocation(program, name) {
 //Create vertex and fragment shaders
 var vertexShader = compileShader(vertexSource, gl.VERTEX_SHADER);
 var fragmentShader = compileShader(fragmentSource, gl.FRAGMENT_SHADER);
-
+canvas.style.backgroundColor = "#2C3E50";
 //Create shader programs
 var program = gl.createProgram();
 gl.attachShader(program, vertexShader);

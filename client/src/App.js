@@ -1,15 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; 
-import Heart from './pages/Heart';
 import './styles.css';
-import CustomButton from './components/Button';
 import { NavBar } from './components/NavBar';
 import AboutUs from './pages/AboutUs'; 
 import Loader from './components/Loader';
-import Card from './components/Card';
-import AnimatedCard from './components/AnimatedCardViolet/AnimatedCard';
 import Categories from './components/Categories';
 import Landing from './pages/Landing';
+import Login from './pages/Login';
 
 
 
@@ -34,9 +31,9 @@ function App() {
           <Route path="/about" element={<AboutUs />} />
           <Route path="/" element={<Landing />} />
           <Route path="/categories" element={<Categories />} />
-          
+          <Route path="/login" element={<Login />} />
         </Routes>
-        <CustomButton defaultColor="#9B59B6" text="Explorar categorias" route="/categories" className=""/>
+        
       </div>
     </Router>
   );

@@ -1,12 +1,8 @@
 .box {
     position: relative;
-    width: 380px;
-    height: 420px;
-    background: #1c1c1c;
+    background: #2C3E50;
     border-radius: 8px;
     overflow: hidden;
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
   }
   
@@ -14,10 +10,8 @@
   .box::after {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 380px;
-    height: 420px;
+    width: 90px;
+    height: 30px;
     background: linear-gradient(0deg, transparent, transparent, #9B59B6, #9B59B6, #9B59B6);
     z-index: 1;
     transform-origin: bottom right;
@@ -45,9 +39,8 @@
   
   .box div {
     position: absolute;
-    inset: 4px;
-    background: #222;
-    padding: 50px 40px;
+    inset: 2px;
+    background: #1F2A36;
     border-radius: 8px;
     z-index: 2;
     display: flex;

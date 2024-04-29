@@ -1,6 +1,7 @@
 import React from "react";
 import AnimatedCard from "./AnimatedCardViolet/AnimatedCard";
 
+
 const Categories = ()=>{
 
     let categorias = [
@@ -67,13 +68,17 @@ const Categories = ()=>{
     ]
 
     return(
-        <div className="fixed text-primari font-bold top-12 left-0 h-full w-full bg-fondo screen-full">
-            {
-                categorias.map((categorias, index) => (
-                    <AnimatedCard key={index}>{categorias.categoria}</AnimatedCard>
-                ))
-            }
+      <div className="fixed top-4 left-0 w-full h-full bg-fondo">
+      <div className="container mx-auto px-8 py-8 md:py-12">
+        <div className="grid text-primari grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {categorias.map((categoria, index) => (
+            <div key={index}>
+              <AnimatedCard>{categoria.categoria}</AnimatedCard>
+            </div>
+          ))}
         </div>
+      </div>
+    </div>
     )
 }
 
