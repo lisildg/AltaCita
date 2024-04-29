@@ -35,6 +35,7 @@ function App() {
           <Route path="/categories" element={<Categories />} />
           
         </Routes>
+       
         <CustomButton defaultColor="#9B59B6" text="Explorar categorias" route="/categories" />
       </div>
     </Router>
