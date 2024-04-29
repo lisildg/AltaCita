@@ -1,7 +1,7 @@
 const jwt=require("jsonwebtoken");
 const { JWT_SECRET } = require("../config/env");
 
-const authenticateMiddleware=(req,res,next)=>{
+const verifyToken=(req,res,next)=>{
     try {
         const authHeader=req.headers.authorization
         if(authHeader){
@@ -27,4 +27,4 @@ const authenticateMiddleware=(req,res,next)=>{
     }
 }
 
-module.exports=authenticateMiddleware
+module.exports=verifyToken

@@ -6,7 +6,7 @@ import CustomButton from './components/Button';
 import { NavBar } from './components/NavBar';
 import AboutUs from './pages/AboutUs'; 
 import Loader from './components/Loader';
-import Card from './components/Card';
+// import Card from './components/Card';
 import AnimatedCard from './components/AnimatedCardViolet/AnimatedCard';
 import Categories from './components/Categories';
 

@@ -19,7 +19,7 @@ const registerController =async (req,res)=>{
     //nuevo usuario
     const newUser=await User.create({email,password:HashedPassword})
 
-        res.status(200).json({newUser, message:"user created successfully."})
+        res.status(200).json({id:newUser._id, email:newUser.email, message:"user created successfully."})
     
    
 
@@ -37,7 +37,7 @@ const loginController = async (req,res)=>{
             if(passwordIsMatch){
                 const accessToken=jwt.sign(
                     {
-                        id:findUser.__id,
+                        id:findUser._id,
                         email:findUser.email
                     },
                     JWT_SECRET
