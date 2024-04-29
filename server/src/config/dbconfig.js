@@ -7,7 +7,8 @@ try {
     console.log('connected database')
    
 } catch (error) {
-    console.log('somenthing went wrong connecting to the db ñeriii')
+    console.log('somenthing went wrong connecting to the db ')
+    console.error(error);
 }
 }
 module.exports = dbconect;

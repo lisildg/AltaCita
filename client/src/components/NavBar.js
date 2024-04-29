@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 export const NavBar = () => {
-    const [menu] = useState([
+    const [menu,setMenu] = useState([
         {
             name: "About Us",
             link: "/about"
