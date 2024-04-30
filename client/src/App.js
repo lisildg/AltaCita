@@ -9,6 +9,8 @@ import Loader from './components/Loader';
 // import Card from './components/Card';
 import AnimatedCard from './components/AnimatedCardViolet/AnimatedCard';
 import Categories from './components/Categories';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 
 
 
@@ -22,6 +24,10 @@ function App() {
     }, 2000); // Tiempo de carga simulado: 2 segundos
   }, []);
   
+  useEffect(() => {
+    
+  }, [])
+  
   return (
     <Router>
        {loading && <Loader />} 
@@ -32,11 +38,16 @@ function App() {
         <Routes>
           <Route path="/about" element={<AboutUs />} />
           <Route path="/" element={<Heart />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/sign-up" element={<RegisterPage />} />
+
+
+
           <Route path="/categories" element={<Categories />} />
           
         </Routes>
        
-        <CustomButton defaultColor="#9B59B6" text="Explorar categorias" route="/categories" />
+        {/* <CustomButton defaultColor="#9B59B6" text="Explorar categorias" route="/categories" /> */}
       </div>
     </Router>
   );
