@@ -1,9 +1,9 @@
 import React from "react"
  const AboutUs = () => {
     return(
-        <div>
-            <h1>About Us</h1>
-            <p></p>
+        <div className="bg-fondo fixed top-12 left-0 w-full h-full">
+            <h3 className="text-primari items-center top-14">About Us</h3>
+            <p>Somos Franco y Lisi.</p>
         </div>
     )
 }

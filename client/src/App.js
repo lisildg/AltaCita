@@ -1,17 +1,16 @@
 import React, {useState, useEffect} from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; 
-import Heart from './pages/Heart';
 import './styles.css';
-import CustomButton from './components/Button';
 import { NavBar } from './components/NavBar';
 import AboutUs from './pages/AboutUs'; 
 import Loader from './components/Loader';
-// import Card from './components/Card';
-import AnimatedCard from './components/AnimatedCardViolet/AnimatedCard';
-import Categories from './components/Categories';
+import Categories from './pages/Categories';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import { useSelector } from 'react-redux';
+import Landing from './pages/Landing';
+import Cita from './pages/Cita';
+import Detail from './pages/DetailCategorie';
 
 
 function App() {
@@ -53,17 +52,16 @@ console.log(isAuthenticated,accessToken);
       <span className='text-primari'>TE amo muchooooooooo</span></AnimatedCard> */}
         <Routes>
           <Route path="/about" element={<AboutUs />} />
-          <Route path="/" element={<Heart />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/sign-up" element={<RegisterPage />} />
+          <Route path="/" element={<Landing />} />
+          <Route path="/categories" element={<Categories />} /> 
+          <Route path="/cita-personalizada" element={<Cita />} /> 
+          <Route path="/categories/:id" render={(props) => <Detail {...props} categorias={categorias} />} />
 
-
-
-          <Route path="/categories" element={<Categories />} />
-          
         </Routes>
        
-        {/* <CustomButton defaultColor="#9B59B6" text="Explorar categorias" route="/categories" /> */}
+        
       </div>
     </Router>
   );
