@@ -7,6 +7,7 @@ import Loader from './components/Loader';
 import Categories from './pages/Categories';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
+import { useSelector } from 'react-redux';
 import Landing from './pages/Landing';
 import Cita from './pages/Cita';
 import Detail from './pages/DetailCategorie';
@@ -14,7 +15,8 @@ import Detail from './pages/DetailCategorie';
 
 function App() {
   const [loading, setLoading] = useState(true);
-
+const {isAuthenticated,accessToken}=useSelector((user)=>user)
+console.log(isAuthenticated,accessToken);
   useEffect(() => {
     // Simula una carga inicial
     setTimeout(() => {
@@ -23,7 +25,22 @@ function App() {
   }, []);
   
   useEffect(() => {
-    
+   async function checkAuth() {
+      try {
+        if(accessToken){
+
+        }else{
+
+          const token = localStorage.getItem("token")
+        }
+        
+      } catch (error) {
+        
+      }
+    }
+
+  checkAuth()
+
   }, [])
   
   return (
