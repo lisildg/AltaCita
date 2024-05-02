@@ -11,12 +11,13 @@ import AnimatedCard from './components/AnimatedCardViolet/AnimatedCard';
 import Categories from './components/Categories';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
-
+import { useSelector } from 'react-redux';
 
 
 function App() {
   const [loading, setLoading] = useState(true);
-
+const {isAuthenticated,accessToken}=useSelector((user)=>user)
+console.log(isAuthenticated,accessToken);
   useEffect(() => {
     // Simula una carga inicial
     setTimeout(() => {
@@ -25,7 +26,22 @@ function App() {
   }, []);
   
   useEffect(() => {
-    
+   async function checkAuth() {
+      try {
+        if(accessToken){
+
+        }else{
+
+          const token = localStorage.getItem("token")
+        }
+        
+      } catch (error) {
+        
+      }
+    }
+
+  checkAuth()
+
   }, [])
   
   return (

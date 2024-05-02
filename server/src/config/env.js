@@ -1,8 +1,11 @@
 require('dotenv').config();
 const MONGODBCONNECT = process.env.MONGODBCONNECT;
-const JWT_SECRET=process.env.JWT_SECRET;
+const ACESS_JWT_SECRET=process.env.ACESS_JWT_SECRET;
+const REFRESH_JWT_SECRET=process.env.REFRESH_JWT_SECRET;
+
 module.exports = {
     MONGODBCONNECT,
-    JWT_SECRET
+    ACESS_JWT_SECRET,
+    REFRESH_JWT_SECRET
 }
 
