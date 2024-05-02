@@ -1,6 +1,53 @@
-import React from 'react'
-
+import React,{useState,useEffect} from 'react'
+import { requestServerRegister } from '../api/user'
+import {useNavigate} from "react-router-dom"
+import { useSelector } from 'react-redux';
 function RegisterForm() {
+const navigate=useNavigate()
+const userState = useSelector((user) => user);
+
+  const [formRegister,SetFormRegister]=useState({
+    firstname:"",
+    lastname:"",
+    email:"",
+    password:""
+  })
+
+  function handleChangeForm(event) {
+    const {name,value}=event.target
+  SetFormRegister({
+    ...formRegister,
+    [name]:value
+  })
+  
+  }
+
+
+  function onSubmit(event) {
+    event.preventDefault()
+    if(Object.values(formRegister).some((el)=>el==="")){
+      console.log(Object.values(formRegister));
+      console.log("faltan datos");
+      return 
+    }
+
+    requestServerRegister(formRegister)
+    .then((res)=>{
+      console.log(res.data.message);
+      navigate("/login")
+    })
+    .catch((error)=>{
+      console.log(error);
+    })
+
+  }
+useEffect(() => {
+
+  if(userState.isAuthenticated){
+    navigate("/dashboard")
+  }
+}, [])
+
   return (
 
     <main
@@ -36,30 +83,35 @@ function RegisterForm() {
         </p>
       </div>
 
-      <form action="#" class="mt-8 grid grid-cols-6 gap-6">
+      <form onSubmit={(event)=>onSubmit(event)} class="mt-8 grid grid-cols-6 gap-6">
         <div class="col-span-6 sm:col-span-3">
-          <label for="FirstName" class="block text-sm font-medium text-gray-700">
+          <label for="firstname" class="block text-sm font-medium text-gray-700">
             First Name
           </label>
 
           <input
             type="text"
-            id="FirstName"
-            name="first_name"
+            id="firstname"
+            name="firstname"
+            value={formRegister.firstname}
+            onChange={event=>handleChangeForm(event)}
+            
             class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
           />
         </div>
 
         <div class="col-span-6 sm:col-span-3">
-          <label for="LastName" class="block text-sm font-medium text-gray-700">
+          <label for="lastname" class="block text-sm font-medium text-gray-700">
             Last Name
           </label>
 
           <input
             type="text"
-            id="LastName"
-            name="last_name"
+            id="lastname"
+            name="lastname"
             class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+            value={formRegister.lastname}
+            onChange={event=>handleChangeForm(event)}
           />
         </div>
 
@@ -70,6 +122,8 @@ function RegisterForm() {
             type="email"
             id="Email"
             name="email"
+            value={formRegister.email}
+            onChange={event=>handleChangeForm(event)}
             class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
           />
         </div>
@@ -81,22 +135,13 @@ function RegisterForm() {
             type="password"
             id="Password"
             name="password"
+            value={formRegister.password}
+            onChange={event=>handleChangeForm(event)}
             class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
           />
         </div>
 
-        <div class="col-span-6 sm:col-span-3">
-          <label for="PasswordConfirmation" class="block text-sm font-medium text-gray-700">
-            Password Confirmation
-          </label>
-
-          <input
-            type="password"
-            id="PasswordConfirmation"
-            name="password_confirmation"
-            class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
-          />
-        </div>
+   
 
         <div class="col-span-6">
           <label for="MarketingAccept" class="flex gap-4">
@@ -138,7 +183,7 @@ function RegisterForm() {
     </div>
   </main>
 
-
+ 
   )
 }
 
