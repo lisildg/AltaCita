@@ -1,8 +1,10 @@
-import React from "react";
-import AnimatedCard from "./AnimatedCardViolet/AnimatedCard";
+import React, {useState} from "react";
+import { Link } from "react-router-dom";
+import AnimatedCard from "../components/AnimatedCardViolet/AnimatedCard";
 
 
 const Categories = ()=>{
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
     let categorias = [
         {
@@ -67,16 +69,32 @@ const Categories = ()=>{
           },
     ]
 
+    const handleCategoryClick = (categoria) => {
+      setSelectedCategory(categoria);
+    };
+
     return(
       <div className="fixed top-4 left-0 w-full h-full bg-fondo">
       <div className="container mx-auto px-8 py-8 md:py-12">
         <div className="grid text-primari grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {categorias.map((categoria, index) => (
-            <div key={index}>
-              <AnimatedCard>{categoria.categoria}</AnimatedCard>
-            </div>
+            <Link key={index} to={`/categories/${index}`}>
+              <AnimatedCard onClick={() => handleCategoryClick(categoria)}>
+                {categoria.categoria}
+              </AnimatedCard>
+            </Link>
           ))}
         </div>
+        {selectedCategory && (
+          <div className="mt-8">
+            <h2 className="text-xl font-semibold">{selectedCategory.categoria}</h2>
+            <ul className="mt-2">
+              {selectedCategory.citas.map((cita, index) => (
+                <li key={index}>{cita}</li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </div>
     )
